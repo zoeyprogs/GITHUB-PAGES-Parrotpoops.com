@@ -1,0 +1,257 @@
+body {
+    background-color: white;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    }
+    .page {
+        background-color: white;
+        margin: 5rem;
+        padding: 3rem;
+    }
+    footer {
+        text-align: center;
+        height: 10px;
+    }
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    img.sewing {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+    }
+    img.fitsmaller {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+    .profile {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+    }
+    .gallery {
+        padding-left: 10rem;
+        padding-right: 10rem;
+    }
+    .processes {
+        font-size: 1.5rem;
+    }
+    aside {
+        font-size: 2rem;
+    }
+    a.sale {
+        font-size: 2rem;
+    }
+    p {
+        font-size: 2rem;
+    }
+    b {
+        font-size: 2rem;
+    }
+    
+    
+                                                    /* _N A V B A R_ */
+    .navbar {
+        background-color: white;
+        text-align: center;
+        margin: 1rem;
+    }
+    .navbarOPTIONS {
+        background-color: rgb(255, 255, 183);
+        text-align: center;
+        margin: 1rem;
+    }
+    a.nav {
+        text-decoration: none;
+        color: black;
+    
+        font-family: 'Quicksand', sans-serif;
+        font-size: 2rem;
+    }
+    .navACTIVE {
+        text-decoration: underline;
+    
+        font-family: 'Quicksand', sans-serif;
+        font-size: 2rem;
+    }
+    /* Horizonal */
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: white;
+    } 
+    li {
+        float: left;
+    }
+    li a {
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    /* Horizonal */
+    
+    
+                                                    /* H O M E . H T M L */
+    .home {
+        margin-left: 10rem;
+        margin-right: 10rem;
+    }
+    h1 {
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    h2 {
+        font-family: 'Mukta', sans-serif;
+        color: grey;
+    }
+    a.projects {
+        text-decoration: none;
+        color: plum;
+    }
+    /* specialnote */
+    /* intro */
+    
+                                                    /* P R O J E C T S . H T M L */
+    .projectLink {
+        font-family: 'Quicksand', sans-serif;
+        font-size: 2rem;
+    }
+    
+    
+    
+                                                    /* B I R D B E D S . H T M L */
+    h1.birdbeds {
+        font-family: 'Caveat', cursive;
+        font-size: 4rem;
+    }
+                                                    /* B I R D B E D S PROCESS . H T M L */
+    h1.process {
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 4rem;
+    }
+    .problembed  {
+        margin-top: 5rem;
+        margin-bottom: 2rem;;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 3rem;
+        border: solid;
+        border-width: 5px;
+        border-color: rgb(255, 0, 43); 
+        border-radius: 10%;
+    }
+    
+    
+    
+                                                    /* B I R D C A G E S . H T M L */
+    h1.birdcages {
+        font-family: 'Caveat', cursive;
+        font-size: 4rem;
+    }
+                                                    /* B I R D C A G E S PROCESS . H T M L */
+    h1.process {
+        font-family: 'Shadows Into Light', cursive;
+        font-size: 4rem;
+    }
+    h2.problems {
+        font-family: 'Quicksand', sans-serif;
+        color: black;
+    }
+    .exotics {
+        font-family: 'Zeyada', cursive;
+        font-size: 2rem;
+    }
+    .problem  {
+        margin-top: 5rem;
+        margin-bottom: 2rem;;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1rem;
+        border: solid;
+        padding: 3rem;
+        border-width: 5px;
+        border-color: rgb(255, 214, 221); 
+        border-radius: 10%;
+    }
+    em {
+        color:rgb(73, 73, 255);
+    }
+    .design  {
+        margin-top: 5rem;
+        margin-bottom: 2rem;;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 3rem;
+        border: solid;
+        border-width: 1rem;
+        border-width: 5px;
+        border-color: rgb(199, 199, 255); 
+        border-radius: 10%;
+    }
+    .build  {
+        margin-top: 5rem;
+        margin-bottom: 2rem;;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 3rem;
+        border: solid;
+        border-width: 1rem;
+        border-width: 5px;
+        border-color: rgb(199, 255, 199); 
+        border-radius: 10%;
+    }
+    .solution {
+        margin-top: 5rem;
+        margin-bottom: 2rem;;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 3rem;
+        border-width: 10px;
+        background-color: rgb(255, 214, 221);
+        border-radius: 10%;
+    }
+    
+    
+                                                    /* S E W I N G . H T M L */
+    h1.sewing {
+        font-family: 'EB Garamond', serif;
+    }
+    
+    
+                                                    /* A L L ... H T M L */
+    .specialnote {
+        padding: 2rem;
+        border-radius: 10%;
+        background-color: rgb(255, 255, 218);
+    }
+    .intro  {
+        margin-top: 5rem;
+        margin-bottom: 2rem;;
+        padding: 3rem;
+        background-color: beige;
+        border-radius: 10%;
+    
+    }
+    .inset  {
+        margin-top: 3rem;
+        margin-bottom: 2rem;;
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1rem;
+        background-color: white;
+        border-radius: 10%;
+        font-size: 2rem;
+    }
+    em.pink {
+        color: plum;
+    }
