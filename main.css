@@ -18,6 +18,18 @@ body {
         margin-right: auto;
         width: 100%;
     }
+    img.small {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 25%;
+    }
+    img.medium {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
     img.sewing {
         display: block;
         margin-left: auto;
@@ -255,8 +267,9 @@ body {
     em.pink {
         color: plum;
     }
-
+    
     h2.mouseUP {
         font-family: 'Dosis', sans-serif;
         font-size: medium;
     }
+    
