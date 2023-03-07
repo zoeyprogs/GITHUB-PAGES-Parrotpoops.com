@@ -18,6 +18,12 @@ body {
         margin-right: auto;
         width: 100%;
     }
+    img.smaller {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10%;
+    }
     img.small {
         display: block;
         margin-left: auto;
