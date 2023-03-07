@@ -255,3 +255,8 @@ body {
     em.pink {
         color: plum;
     }
+
+    h2.mouseUP {
+        font-family: 'Dosis', sans-serif;
+        font-size: medium;
+    }
