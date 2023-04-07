@@ -170,7 +170,19 @@
         </div>
         <div id="files">
             <h1>Files</h1>
-            <br>
+            <pre>
+                Separating Class Definition from Class Implementation
+                header file (.h) contains the class definition (simply list the data fields, constructor prototypes, function prototypes)
+                source file (.cpp) contains the class implementation of the constructors and functions
+                both the .h and .cpp should have the same file name
+            </pre>
+            <pre>
+                preprocessor directives
+                    to prevent a header file from being included multiple times:
+                    #indef  // @ top 
+                    #define  // @ top
+                    #endif  // @ bottom
+            </pre>
             <a href="#top">Back to Top</a>
         </div>
         <div id="formatting">
@@ -266,6 +278,9 @@
                     <a href="https://www.learncpp.com/cpp-tutorial/header-files/">Header Files</a>
                     anything that starts with a #
                     #include <>iostream
+                    #ifndef  // if not defined
+                    #define
+                    #endif  // indicates end of header file
                     
                     
             </pre>
@@ -412,6 +427,10 @@
                 cd              move into directory (make current)
                 ..              move up one directory
                 ls              list items in directory
+            </pre>
+            <pre>
+                compile a main program from the command line:
+                g++ Circle.h Circle.cpp TestCircleWithHeader.cpp -o Main
             </pre>
             <br>
             <a href="#top">Back to Top</a>
