@@ -51,6 +51,18 @@
                 </ul>
                 <ul>
                     <li><h1>Writing Code</h1></li>
+                    <!-- procedural design approach -->
+                    <!-- object-oriented design approach -->
+                    <br>
+                    <ul>
+                        <li><h2>Object-Oriented Design Approach</h2></li>
+                        <li><a class="nav" href="#uml">UML</a></li>
+                        <li><a class="nav" href="#classes">Classes</a></li>
+                        <li><a class="nav" href="#constructors">Constructors</a></li>
+                        <li><a class="nav" href="#objects">Objects</a></li>
+                    </ul>
+                    <br>
+                    <!-- functional design approach -->
                     <li><a class="nav" href="#syntax">Syntax</a></li>
                     <li><a class="nav" href="#pointer">Pointers</a></li>
                     <li><a class="nav" href="#datatypes">Data Types</a></li>
@@ -58,9 +70,6 @@
                     <li><a class="nav" href="#datastructure">Data Structures</a></li>
                     <li><a class="nav" href="#array">Arrays</a></li>
                     <li><a class="nav" href="#struct">Structs</a></li>
-                    <li><a class="nav" href="#classes">Classes</a></li>
-                    <li><a class="nav" href="#uml">UML</a></li>
-                    <li><a class="nav" href="#objects">Objects</a></li>
                     <li><a class="nav" href="#conditionals">Conditionals</a></li>
                     <li><a class="nav" href="#loops">Loops</a></li>
                     <li><a class="nav" href="#functions">Functions</a></li>
@@ -188,6 +197,55 @@
             <a href="#top">Back to Top</a>
         </div>
         <!-- WRITING CODE -->
+            <!-- OOP -->
+        <div id="uml">
+            <h1>UML</h1>    
+            <pre>
+                helper in designing classes
+            </pre> 
+            <br>
+            <a href="#top">Back to Top</a>
+        </div>
+        <div id="classes">
+            <h1>Classes</h1>
+            <br>
+            <a href="#top">Back to Top</a>
+        </div>
+        <div id="constructors">
+            <h1>Constructors</h1>
+            a special kind of function which initializes an object
+            no return type
+            <h2>class naming nomenclature</h2>
+            <pre>
+                it must initialize all member variables
+                automatically called when object is declared
+                default constructor does nothing and has no arguments
+                overloading a function is providing multiple versions of the function with different Parameters
+                may overload a constructor
+                parameters in the function call determine which function is used
+                // use no-arg constructor
+                Circle c1;
+                // use one-arg constructor
+                Circle c2(5.5);
+                // use n-arg constructor
+                Circle c3(5.5, 10);  // n = 2
+                avoid shadowed names, instead i.e. use m_ to proceed names of member variables
+                example:
+                private:
+                    double m_radius;
+                Circle::Circle(double radius) {
+                    m_radius = radius;
+                }
+            </pre>
+            <br>
+            <a href="#top">Back to Top</a>
+        </div>
+        <div id="objects">
+            <h1>Objects</h1>
+            <br>
+            <a href="#top">Back to Top</a>
+        </div>
+            <!-- OOP -->
         <div id="syntax">
             <h1>Syntax</h1>
             <pre>
@@ -273,24 +331,6 @@
         <div id="struct">
             <h1>Structs</h1>
             <a href="http://www.learncpp.com/cpp-tutorial/introduction-to-structs-members-and-member-selection/">Structs, Members</a>
-            <br>
-            <a href="#top">Back to Top</a>
-        </div>
-        <div id="classes">
-            <h1>Classes</h1>
-            <br>
-            <a href="#top">Back to Top</a>
-        </div>
-        <div id="uml">
-            <h1>UML</h1>    
-            <pre>
-                helper in designing classes
-            </pre> 
-            <br>
-            <a href="#top">Back to Top</a>
-        </div>
-        <div id="objects">
-            <h1>Objects</h1>
             <br>
             <a href="#top">Back to Top</a>
         </div>
