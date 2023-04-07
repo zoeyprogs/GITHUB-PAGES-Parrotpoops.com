@@ -35,10 +35,10 @@
                 </ul>
                 <ul>
                     <li><h1>Conceptual</h1></li>
-                    <li><a class="nav" href="#compiling/linking">Compiling/Linking</a></li>
-                    <li><a class="nav" href="#memory">Memory</a></li>
-                    <li><a class="nav" href="#scope">Scope</a></li>
                     <li><a class="nav" href="#design">Design</a></li>
+                    <li><a class="nav" href="#scope">Scope</a></li>
+                    <li><a class="nav" href="#memory">Memory</a></li>
+                    <li><a class="nav" href="#compiling/linking">Compiling/Linking</a></li>
                 </ul>
                 <ul>
                     <li><h1>Designing A Program</h1></li>
@@ -67,6 +67,7 @@
                     <li><a class="nav" href="#reference">Reference Parameters</a></li>
                     <li><a class="nav" href="#enums">Enumerations</a></li>
                     <li><a class="nav" href="#operators">Operators</a></li>
+                    <li><a class="nav" href="#recursion">Recursion</a></li>
                 </ul>
                 <ul>
                     <li><h1>Debugging</h1></li>
@@ -81,13 +82,43 @@
                 </ul>
             </nav>
         </div><!--navbar-->
-
         <a href="https://www.learncpp.com/">Learn C++</a>
 
         <!-- CONCEPTUAL -->
-        <div id="compiling/linking">
-            <h1>Compiling/Linking</h1>   
-            <a href="https://www.tenouk.com/ModuleW.html">Compiling and Linking</a>
+        <div id="design">
+            <h1>Design</h1>    
+            <a href="https://www.learncpp.com/cpp-tutorial/introduction-to-local-scope/">Scope</a>   
+            <br>
+            <a href="https://www.learncpp.com/cpp-tutorial/header-guards/">Header Guards</a>
+            <pre>
+                Approaches to Programming Design:
+                1. Procedural Design Approach
+                    Fortran, Assembly C
+                    can solve any problem with this approach
+                    build a program by combining algorithms
+                    algorithms work on data passed between them from function to function
+                    <b>input/output</b>
+                    <b>how to get from input to output</b>
+                    <b>break complex tasks into smaller pieces</b>
+                    <b>design functions to achieve these pieces</b>
+                    <em>issues: scaling</em>
+                2. Object-Oriented Approach
+                    C++, Java, Python
+                    object: entity using data and behavior, may comprise other objects, has properties, can do things and have things done to it
+                    program consists of interacting objects
+                    design: identify objects and determine how objects need to interact
+                    <b>determine data</b>
+                    <b>determine represention of data as object(s)</b>
+                    <b>define interactions between objects</b>
+                3. Functional Approach  
+                    Haskel, Clojure, F#
+            </pre>
+            <a href="#top">Back to Top</a>
+        </div>
+        <div id="scope">
+            <h1>Scope</h1>   
+            <br>
+            <a href="https://pythontutor.com/cpp.html#mode=edit">Call Stack</a>     
             <br>
             <a href="#top">Back to Top</a>
         </div>
@@ -102,25 +133,9 @@
             <br>
             <a href="#top">Back to Top</a>
         </div>
-        <div id="scope">
-            <h1>Scope</h1>   
-            <a href="https://pythontutor.com/cpp.html#mode=edit">Call Stack</a>     
-            <br>
-            <a href="#top">Back to Top</a>
-        </div>
-        <div id="design">
-            <h1>Design</h1>    
-            <a href="https://www.learncpp.com/cpp-tutorial/introduction-to-local-scope/">Scope</a>   
-            <a href="https://www.learncpp.com/cpp-tutorial/header-guards/">Header Guards</a>
-            <pre>
-                Approaches to Programming Design:
-                1. Procedural Design Approach
-                    Fortran, Assembly C
-                2. Object-Oriented Approach
-                    C++, Java, Python
-                3. Functional Approach  
-                    Haskel, Clojure, F#
-            </pre>
+        <div id="compiling/linking">
+            <h1>Compiling/Linking</h1>   
+            <a href="https://www.tenouk.com/ModuleW.html">Compiling and Linking</a>
             <br>
             <a href="#top">Back to Top</a>
         </div>
@@ -326,6 +341,11 @@
                 stream extraction operators 
                     cin >> 
             </pre>
+            <br>
+            <a href="#top">Back to Top</a>
+        </div>
+        <div id="recursion">
+            <h1>Recursion</h1>   
             <br>
             <a href="#top">Back to Top</a>
         </div>
