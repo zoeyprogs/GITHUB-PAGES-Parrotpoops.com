@@ -7,53 +7,656 @@
     <title>C++ Course Content</title>
 </head>
 <body>
-    <h1 id="top">CS 162 Code Review</h1>
-    <a target="_blank" href="https://computerscience.chemeketa.edu/cs160Reader/_static/littleComputer/littleComputer.html?program=510/511/////////1">Little Man Computer</a>
+    <h1><a href="#162">162</a></h1>
 
-    <h3><a href="#object">Objects</a></h3>
-    <h3><a href="#constructor">Constructors</a></h3>
+    <!-- CS 161 -->
+    <h1 id="161">CS 161 Code Review : Procedural Program Design</h1>
+    <div><!-- CS 161 Table of Contents-->
+        <h3><a href="#conditionals">Conditionals</a></h3><!-- complete -->
+        <!-- to-do -->
+        <h3><a href="#numericfunctions">Numeric Functions</a></h3>
+        <h3><a href="#chars">Chars</a></h3>
+        <h3><a href="#basicloops">Basic Loops</a></h3>
+        <h3><a href="#loops">Loops</a></h3>
+        <h3><a href="#nestedloops">Nested Loops</a></h3>
+        <h3><a href="#stringbasics">String Basics</a></h3>
+        <h3><a href="#stringloops">String Loops</a></h3>
+        <h3><a href="#functionbasics">Function Basics</a></h3>
+        <h3><a href="#functions">Functions</a></h3>
+        <h3><a href="#arrays">Arrays</a></h3><!-- complete -->
+        <h3><a href="#arrayfunctions">Array Functions</a></h3><!-- complete -->
+        <h3><a href="#matrix">Matrix</a></h3>
+        <h3><a href="#structs">Structs</a></h3>
+        <h3><a href="#enumerations">Enumerations</a></h3>
+    </div>
+    <div><!-- CONDITIONALS -->
+        <h1 id="conditionals">Conditionals</h1>
+        <a href="#161">161</a>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    /*<b>
+                    Read in a single integer from cin. 
+                    If it is 7, output "Lucky". 
+                    If it is not 7, output nothing.
+                    */</b> 
+                    
+                    #include <iostream>
+                    using namespace std;
+                    
+                    int main()
+                    {
+                        int number;
+                        cin >> number;
+                        
+                        if(number == 7)
+                            cout << "Lucky" << endl;
+                    }
+            </pre>
+        </div>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    /*<b>
+                    Orders from a company that cost $100 or more get a 10% discount. 
+                    Orders less than $100 do not get a discount.
+                    Read in an decimal value representing the undiscounted order price, 
+                    and print out what the order should cost.
+                    Just print the value - do not add a $ or try to make it look like money.
+                    */</b>
+    
+                    int main()
+                    {
+                        double order;
+                        cin >> order;
+                    
+                        double discount = order - (order*0.1);
+                    
+                        if(order >= 100.00)
+                    
+                            cout << discount << endl;
+                        else
+                            cout << order << endl;
+                    }
+            </pre>
+        </div>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    /*<b>
+                    In a dice game, you get the total you roll on two dice, 
+                    unless they are the same, in which case you get double what they total. 
+                    Write a program that helps score the game.
+                    Read in two integers from the console. 
+                    If they are different, print their sum. 
+                    If they are the same, print double their sum.
+                    */</b>
+    
+                    int main()
+                    {
+                        int diceA;
+                        int diceB;
+                        cin >> diceA;
+                        cin >> diceB;
+                    
+                        if(diceA != diceB)
+                            cout << diceA+diceB << endl;
+                        else
+                            cout << (diceA + diceB)*2 << endl;
+                    }
+            </pre>
+        </div>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    /*<b>
+                    An international phone call is billed by the minute according to this scheme: 
+                    Calls up to 10 minutes cost a flat $5. 
+                    Calls over 10 minutes but less than 30 cost $.50 per minute. 
+                    Calls 30 minutes or longer cost a base of $15.00 plus $.30 per minute over 30.
+                    Write a program to read in the duration of a call as an integer 
+                    and output the total cost as a decimal.
+                    */</b>
 
-    <h1 id="object">Objects</h1>
-    <a href="#top">Top</a>
-    <div><!-- OBJECT -->
-        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
-        <pre>
-            #include <iostream>
-            using namespace std;
-            
-            class Point {
-            private:
-                double x;
-                double y;
-            
-            public:<b>
-                Point() {
-                    x = 0;
-                    y = 0;
-                }</b>
-            
-                double getX() {
-                    return x;
-                }
+                    int main()
+                    {
+                        int lengthOfCall;
+                        cin >> lengthOfCall;
+                    
+                        int lowMaxThreshold = 10;
+                        double lowBaseCharge = 5.00;
+                        double lowPerMinute = 0.50;
+                        int lowMinutesToCharge = (lengthOfCall - lowMaxThreshold);
+                        double lowTotalCharge = lowBaseCharge + (lowMinutesToCharge * lowPerMinute);
+                    
+                        int highMaxThreshold = 30;
+                        double highBaseCharge = 15.00;
+                        double highPerMinute = 0.30;
+                        int highMinutesToCharge = (lengthOfCall - highMaxThreshold);
+                        double highTotalCharge = highBaseCharge + (highMinutesToCharge * highPerMinute);
+                    
+                        if (lengthOfCall <= lowMaxThreshold)
+                            cout << lowBaseCharge << endl;
+                    
+                        else if(lengthOfCall > lowMaxThreshold && lengthOfCall < highMaxThreshold)
+                            cout << lowTotalCharge << endl;
+                    
+                        else if (lengthOfCall >= highMaxThreshold)
+                            cout << highTotalCharge << endl;
+                    }
+            </pre>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+
+            </pre>
+        </div>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
                 
-                double getY() {
-                    return y;
-                }
-            };
-            
-            int main()
-            {	<b>
-                // create a point named p1 at the location 0, 0
+            </pre>
+        </div>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
 
-                Point p1;</b>
-            
-                cout << p1.getX() << " " << p1.getY() << endl;
-            }
-        </pre>
+            </pre>
+        </div>
+            </pre>
+        </div>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    /*<b>
+                    Write code that will judge a rock paper scissors competition. 
+                    It should read in two integers 
+                    - first being player A's move, 
+                    - second being player B's move. 
+                    The following convention will be used:
+                    1 : rock
+                    2 : paper
+                    3 : scissors
+                    Rock beats scissors, paper beats rock, scissors beats paper. 
+                    If both players chose the same thing, they tie. 
+                    If player A wins, print "A". 
+                    If player B wins, print "B", if there is a tie, print "tie".
+                    */</b>
+
+                    int main()
+                    {
+                        // each player will enter a number:
+                    
+                    //    rules:
+                    //    1 : rock
+                    //    2 : paper
+                    //    3 : scissors
+                    
+                    //    notes:
+                    //    rock > scissor
+                    //    paper > rock
+                    //    scissors > paper
+                    //    1 > 3
+                    //    2 > 1
+                    //    3 > 2
+                    
+                        int playerA;
+                        int playerB;
+                    
+                        //cout << "make a move A: " << endl;
+                        cin >> playerA;
+                    
+                        //cout << "make a move B: " << endl;
+                        cin >> playerB;
+                    
+                        if (playerA == 1 && playerB == 3)
+                            cout << "A" << endl;
+                        else if (playerA == 2 && playerB == 1)
+                            cout << "A" << endl;
+                        else if (playerA == 3 && playerB == 2)
+                            cout << "A" << endl;
+                        else if (playerA == playerB)
+                            cout << "tie" << endl;
+                        else
+                            cout << "B" << endl;
+                    }                    
+            </pre>
+        </div>
+        <div><!-- CONDITIONALS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    */<b>
+                    In a two-person card game, the players each start with 20 "health points" 
+                    and play until one is reduced to 0 or less.
+                    If a player reduces the other to 0 health, they are the winner. 
+                    If the winner still has 10 or more of their health points left, 
+                    it is declared a "crushing win" (or "crushing loss" depending on your perspective).
+                    Write a program to read in the final health values for the two players 
+                    and print out the outcome of the game from the perspective of player 1 
+                    (the first health value) - Win, Loss, Crushing Win, Crushing Loss. 
+                    For example, if the two values were 8 and 0 you should print Win. 
+                    If the two values were -1 and 16 you would print Crushing Loss.
+                    */</b>
+
+                    int main()
+                    {
+                        int playerA;
+                        int playerB;
+                    
+                        cin >> playerA;
+                        cin >> playerB;
+                    
+                        if(playerA < 10 && playerB <= 0)
+                            cout << "Win" << endl;
+                        else if(playerB < 10 && playerA <= 0)
+                            cout << "Loss" << endl;
+                        else if(playerA >= 10 && playerB <=0)
+                            cout << "Crushing Win" << endl;
+                        else if(playerB >= 10 && playerA <=0)
+                            cout << "Crushing Loss" << endl;
+                    }
+                    
+            </pre>
+        </div>
+    </div>
+    <div><!-- NUMERIC FUNCTIONS -->
+        <h1 id="numericfunctions">Numeric Functions</h1>
+        <a href="#161">161</a>
+        <div><!-- NUMERIC FUNCTIONS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+    
+            </pre>
+        </div>
+        <div><!-- NUMERIC FUNCTIONS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+    
+            </pre>
+        </div>
+        <div><!-- NUMERIC FUNCTIONS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+    
+            </pre>
+        </div>
+    </div>
+    <div><!-- ARRAYS -->
+        <h1 id="arrays">Arrays</h1>
+        <a href="#161">161</a>
+        <div><!-- ARRAYS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    #include <iomanip>
+                    
+                    using namespace std;
+                    
+                    /*<b>
+                    Declare an array of 5 doubles called values 
+                    - initialize it with 1.6, 3.1, 8.3, 9.1, 4.8 
+                    */</b>
+
+                    int main()
+                    {
+                        const int NUM_VALUES = 5;
+                        <b>
+                        double values[NUM_VALUES] = {1.6, 3.1, 8.3, 9.1, 4.8};	
+                        </b>
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cout << values[i] << " ";
+                        }
+                        
+                        return 0;
+                    }
+            </pre>
+        </div>
+        <div><!-- ARRAYS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                #include <iostream>
+                    #include <iomanip>
+                    
+                    using namespace std;
+                    
+                    /*<b>
+                    The existing code reads in a size to NUM_VALUES, 
+                    makes an array called values 
+                    (I am cheating... do not make variable sized arrays!), 
+                    and then reads in values for it. 
+                    Your task is to swap the first and last item in the array. 
+                    Existing code will print out the results of your code.
+                    
+                    Input of
+                    4
+                    5 10 15 20
+                    
+                    Will make an array 5, 10, 15, 20. 
+                    You should modify that so it is 20, 10, 15, 5.
+                    Hint: NUM_VALUES represents the length of the array... 
+                    what expression represents the index of the last element?
+                    */</b>
+
+                    int main()
+                    {
+                        int NUM_VALUES;  //cheating to make this flexible    
+                        cin >> NUM_VALUES;
+                        double values[NUM_VALUES];
+                        //Read in values
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cin >> values[i];
+                        }
+                    
+                        <b>                    
+                        // the last index value
+                        int lastIndex = NUM_VALUES - 1;
+                    
+                        // declare a first and last value via index
+                        double first = values[0];
+                        double last = values[lastIndex];
+                    
+                        // create a copy of the array
+                        double copy[NUM_VALUES];
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            copy[i] = values[i];
+                        }
+                        
+                        // reinitialize the first and last values of the copied array      
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            copy[0] = last;
+                            copy[lastIndex] = first;
+                        }
+                        
+                        // reinitialize the original array
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            values[i] = copy[i];
+                        }
+                        </b>
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cout << values[i] << " ";
+                        }
+                        
+                        return 0;
+                    }
+            </pre>
+        </div>
+        <div><!-- ARRAYS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                #include <iostream>
+                    #include <iomanip>
+                    
+                    using namespace std;
+                    
+                    /*<b>
+                    The existing code reads in a size to NUM_VALUES, makes an array called values 
+                    (I am cheating... do not make variable sized arrays!), 
+                    and then reads in values for it. 
+                    Your task is to change any negative values to 0. 
+                    The existing code will then print out the array to confirm you changed it.
+                    
+                    Input of
+                    4
+                    -4 2 1 -3
+
+                    Will make an array -4, 2, 1, -3. 
+                    You should modify that so it is 0, 2, 1, 0.
+                    */</b>
+
+                    int main()
+                    {
+                        int NUM_VALUES;  // cheating to make this flexible    
+                        cin >> NUM_VALUES;
+                        double values[NUM_VALUES];
+                        
+                        <b>// READ IN VALUES</b>
+                        
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cin >> values[i];
+                        }
+
+                        <b>// DECLARE A COPIED ARRAY</b>
+
+                        double valuesCopy[NUM_VALUES];
+
+                        <b>// COPY THE ARRAY</b>
+
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            valuesCopy[i] = values[i];	
+                        }
+                        
+                        <b>// ITERATE THRU THE COPY</b>
+                        // if a value is less than 0, reassign the value as 0
+
+                        for (int i = 0; i < NUM_VALUES; i++) {
+                            if (valuesCopy[i] < 0)
+                                valuesCopy[i] = 0; 
+                        }
+                        
+                        <b>// copy the modified array back to the original</b>
+                        
+                        for (int i = 0; i < NUM_VALUES; i++) {
+                            values[i] = valuesCopy[i];
+                        }
+                        
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cout << values[i] << " ";
+                        }
+                        
+                        return 0;
+                    }
+            </pre>
+        </div>
+    </div>
+    <div><!-- ARRAY FUNCTIONS -->
+        <h1 id="arrayfunctions">Array Functions</h1>
+        <a href="#161">161</a>
+        <div><!-- ARRAY FUNCTIONS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+
+                    /*<b>
+                    The existing code is trying to call a function addNegatives 
+                    that should take an array of ints and its size and 
+                    return the sum of JUST the negative numbers from the array. 
+                    Your task is to write the missing function.
+                    Example: given input of an array {-4 2 1 -3} and size 4 you should print -7
+                    */</b>
+                    
+                    // The existing code is trying to call a function addNegatives
+                    // take an array of ints and its size
+                    // returns the sum of JUST the negative numbers from the array.
+                    
+                    // Example: given input of an array {-4 2 1 -3} and size 4 you should print -7
+                    
+                    int addNegatives(const int values[], int NUM_VALUES) {
+                        // only the address of the array was passed;
+                        // copy the array now
+                        int copy[10];
+                        int sum = 0;
+                    
+                        for (int i = 0; i < NUM_VALUES; i++) {
+                            copy[i] = values[i];
+                    
+                            if (copy[i] < 0) {
+                                sum += copy[i];
+                            }
+                        }
+                    
+                        return sum;
+                    }
+                    
+                    int main()
+                    {
+                        int NUM_VALUES;  //cheating to make this flexible
+                        cin >> NUM_VALUES;
+                        int values[NUM_VALUES];
+                        //Read in values
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cin >> values[i];
+                        }
+                    
+                        int sum = addNegatives(values, NUM_VALUES);
+                        cout << sum;
+                    }
+            </pre>
+        </div>
+        <div><!-- ARRAY FUNCTIONS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+
+                    /*<b>
+                    The existing code entries to make use of a function 
+                    void squareArray(const int array[], int destination[], int size). 
+                    This function should take each of the size elements from array, 
+                    square the element, and place the answer into the same location in the destination array
+                    i.e. if array is {1 2 3 4} and size is 4, when your function returns, 
+                    destination should be {1 4 9 16}. 
+                    */</b>
+                    
+                    void squareArray(const int array[], int destination[], int size) {
+                    
+                        // copy the array
+                        for (int i = 0; i < size; i++) {
+                            int copy[size];
+                            destination[i] = array[i];
+                            copy[i] = destination[i] * destination[i];
+                    
+                            // return the copy to destination[]
+                            destination[i] = copy[i];
+                        }
+                        
+                        return;
+                    }
+                    
+                    int main()
+                    {
+                        int NUM_VALUES;  //cheating to make this flexible
+                        cin >> NUM_VALUES;
+                    
+                        int values[NUM_VALUES];
+                        //Read in values
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cin >> values[i];
+                        }
+                    
+                        int squares[NUM_VALUES];
+                    
+                        //Call your function
+                        squareArray(values, squares, NUM_VALUES);
+                    
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cout << squares[i] << " ";
+                        }
+                    
+                        return 0;
+                    }
+            </pre>
+        </div>
+        <div><!-- ARRAY FUNCTIONS -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    /*<b>
+                    The existing code is trying to call a function printLargestTwo 
+                    that should take in an array of ints and its size and 
+                    prints the two largest values from the array. Write that function.
+                    Hint:
+                    Start by finding just the largest item.
+                    Then modify your code to also look for second largest.You can either:
+                    Modify your existing loop to track the second largest as well. 
+                    Each number you look at is either:
+                    A) the new largest item (and the old largest is now the second largest)
+                    B) the new second largest (and the largest is unchanged)
+                    C) neither the largest or the second largest
+                    Add another loop to look for the largest thing that is not the largest.
+                    */</b>
+
+                    int printLargestTwo(const int array[], int size) {
+                    
+                        // only the address of the array was passed:
+                    
+                    
+                        int copy[10];
+                        int firstLargest = 0;
+                        // step #1
+                        for (int i = 0; i < size; i++) {
+                            // copy the array
+                            copy[i] = array[i];
+                            // find the largest
+                            if (copy[i] > firstLargest) {
+                                firstLargest = copy[i];
+                            }
+                        }
+                    
+                        int secondLargest = 0;
+                        // step #2
+                        for (int i = 0; i < size; i++) {
+                            // find the largest != firstLargest
+                    
+                            if (copy[i] == firstLargest)
+                                continue;
+                            if (copy[i] > secondLargest) {
+                                secondLargest = copy[i];
+                            }
+                        }
+                        cout << firstLargest << " " << secondLargest << endl;
+                    
+                        return 0;
+                    }
+                    
+                    int main()
+                    {
+                        int NUM_VALUES;  //cheating to make this flexible
+                        cin >> NUM_VALUES;
+                        int values[NUM_VALUES];
+                        //Read in values
+                        for(int i = 0; i < NUM_VALUES; i++) {
+                            cin >> values[i];
+                        }
+                    
+                        printLargestTwo(values, NUM_VALUES);
+                    }
+            </pre>
+        </div>
+    </div>
+    
+
+    <!-- CS 162 -->
+    <h1 id="162">CS 162 Code Review : OOP Program Design</h1>
+    <a target="_blank" href="https://computerscience.chemeketa.edu/cs160Reader/_static/littleComputer/littleComputer.html?program=510/511/////////1">
+        Little Man Computer</a>
+    <div><!-- CS 161 Table of Contents-->
+        <h3><a href="#object">Objects</a></h3>
+        <h3><a href="#constructor">Constructors</a></h3>
     </div>
     <div><!-- OBJECT -->
-        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
-        <pre>
+        <h1 id="object">Objects</h1>
+        <a href="#162">162</a>
+        <div><!-- OBJECT -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
                 #include <iostream>
                 using namespace std;
                 
@@ -62,384 +665,422 @@
                     double x;
                     double y;
                 
-                public:
+                public:<b>
                     Point() {
                         x = 0;
                         y = 0;
-                    }
-                    <b>
-                    Point(double startX, double startY) {
-                        x = startX;
-                        y = startY;
                     }</b>
                 
                     double getX() {
                         return x;
                     }
-                
+                    
                     double getY() {
                         return y;
                     }
                 };
                 
                 int main()
-                {
-                    // read in two doubles from the console
-
-                    double x1;
-                    double y1;
-                    cin >> x1;
-                    cin >> y1;
-                    <b>
-                    // create a point named p1 at the x and y coordinates given by the numbers from the console
-
-                    Point p1(x1, y1);
-                    </b>
+                {	<b>
+                    // create a point named p1 at the location 0, 0
+    
+                    Point p1;</b>
+                
                     cout << p1.getX() << " " << p1.getY() << endl;
                 }
-        </pre>
+            </pre>
+        </div>
+        <div><!-- OBJECT -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    class Point {
+                    private:
+                        double x;
+                        double y;
+                    
+                    public:
+                        Point() {
+                            x = 0;
+                            y = 0;
+                        }
+                        <b>
+                        Point(double startX, double startY) {
+                            x = startX;
+                            y = startY;
+                        }</b>
+                    
+                        double getX() {
+                            return x;
+                        }
+                    
+                        double getY() {
+                            return y;
+                        }
+                    };
+                    
+                    int main()
+                    {
+                        // read in two doubles from the console
+    
+                        double x1;
+                        double y1;
+                        cin >> x1;
+                        cin >> y1;
+                        <b>
+                        // create a point named p1 at the x and y coordinates given by the numbers from the console
+    
+                        Point p1(x1, y1);
+                        </b>
+                        cout << p1.getX() << " " << p1.getY() << endl;
+                    }
+            </pre>
+        </div>
+        <div><!-- OBJECT -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    // represents a point on a standard Cartesian plane
+    
+                    class Point {
+                    private:
+                        double x;
+                        double y;
+                    
+                    public:
+                        Point() {
+                            x = 0;
+                            y = 0;
+                        }
+                    
+                        double getX() {
+                            return x;
+                        }
+                        
+                        double getY() {
+                            return y;
+                        }
+                        
+                        void translate(double deltaX, double deltaY) {
+                            x += deltaX;
+                            y += deltaY;
+                        }
+                    };
+                    
+                    int main()
+                    {
+                        Point p1;
+                        Point p2;
+                        <b>
+                        // move Point p1: right 10 units, down 3 units
+                        // move Point p2: left 2 units, up 5 units
+                        
+                        p1.translate(10,-3);
+                        p2.translate(-2,5);
+                        </b>
+                        cout << p1.getX() << " " << p1.getY() << endl;
+                        cout << p2.getX() << " " << p2.getY() << endl;
+                    }
+            </pre>
+        </div>
+        <div><!-- OBJECT -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    #include <cstdlib>
+                    #include <ctime>
+                    using namespace std;
+                    
+                    class Point {
+                    private:
+                        double x;
+                        double y;
+                    
+                    public:
+                        Point() {
+                            x = 0;
+                            y = 0;
+                        }
+                    
+                        Point(double startX, double startY) {
+                            x = startX;
+                            y = startY;
+                        }
+                    
+                        double getX() {
+                            return x;
+                        }
+                        
+                        double getY() {
+                            return y;
+                        }
+                        
+                        void translate(double deltaX, double deltaY) {
+                            x += deltaX;
+                            y += deltaY;
+                        }
+                    };
+                    
+                    int main()
+                    {
+                        srand(static_cast<int>(time(0)));
+                        Point p1(rand() % 10, rand() % 10);
+                        <b>
+                        // create a point p2: right 4 units of p1, down 3 units from it
+                        
+                        double x1;
+                        double y1;
+                        
+                        Point p2;
+                        p2 = p1;
+                        
+                        double xShift = x1 + 4;
+                        double yShift = y1 - 3;
+                        
+                        p2.translate(xShift, yShift);
+                        </b>
+                        cout << p2.getX() - p1.getX() << endl;
+                        cout << p2.getY() - p1.getY() << endl;
+                    }
+            </pre>
+        </div>
     </div>
-    <div><!-- OBJECT -->
-        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
-        <pre>
-                #include <iostream>
-                using namespace std;
-                
-                // represents a point on a standard Cartesian plane
-
-                class Point {
-                private:
-                    double x;
-                    double y;
-                
-                public:
-                    Point() {
-                        x = 0;
-                        y = 0;
-                    }
-                
-                    double getX() {
-                        return x;
-                    }
-                    
-                    double getY() {
-                        return y;
-                    }
-                    
-                    void translate(double deltaX, double deltaY) {
-                        x += deltaX;
-                        y += deltaY;
-                    }
-                };
-                
-                int main()
-                {
-                    Point p1;
-                    Point p2;
-                    <b>
-                    // move Point p1: right 10 units, down 3 units
-                    // move Point p2: left 2 units, up 5 units
-                    
-                    p1.translate(10,-3);
-                    p2.translate(-2,5);
-                    </b>
-                    cout << p1.getX() << " " << p1.getY() << endl;
-                    cout << p2.getX() << " " << p2.getY() << endl;
-                }
-        </pre>
-    </div>
-    <div><!-- OBJECT -->
-        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
-        <pre>
-                #include <iostream>
-                #include <cstdlib>
-                #include <ctime>
-                using namespace std;
-                
-                class Point {
-                private:
-                    double x;
-                    double y;
-                
-                public:
-                    Point() {
-                        x = 0;
-                        y = 0;
-                    }
-                
-                    Point(double startX, double startY) {
-                        x = startX;
-                        y = startY;
-                    }
-                
-                    double getX() {
-                        return x;
-                    }
-                    
-                    double getY() {
-                        return y;
-                    }
-                    
-                    void translate(double deltaX, double deltaY) {
-                        x += deltaX;
-                        y += deltaY;
-                    }
-                };
-                
-                int main()
-                {
-                    srand(static_cast<int>(time(0)));
-                    Point p1(rand() % 10, rand() % 10);
-                    <b>
-                    // create a point p2: right 4 units of p1, down 3 units from it
-                    
-                    double x1;
-                    double y1;
-                    
-                    Point p2;
-                    p2 = p1;
-                    
-                    double xShift = x1 + 4;
-                    double yShift = y1 - 3;
-                    
-                    p2.translate(xShift, yShift);
-                    </b>
-                    cout << p2.getX() - p1.getX() << endl;
-                    cout << p2.getY() - p1.getY() << endl;
-                }
-        </pre>
-    </div>
-
-    <h1 id="constructor">Constructors</h1>
-    <a href="#top">Top</a>
     <div><!-- CONSTRUCTOR -->
-        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
-        <pre>
-                #include <iomanip>
-                #include <iostream>
-                using namespace std;
-                
-                /*
-                 * Stores a time of day in 24 hour format
-                 *
-                 * 0 hours indicates midnight
-                 * 12 hours indicates noon
-                */
-
-                <b>
-                // Implement the default (no argument) constructor that sets time to midnight.
-                </b>
-                
-                class Time
-                {
-                private:
-                    int hour;
-                    int minute;
-                
-                public:
-                   
-                    <b>Time()
+        <h1 id="constructor">Constructors</h1>
+        <a href="#162">162</a>
+        <div><!-- CONSTRUCTOR -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iomanip>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    /*
+                     * Stores a time of day in 24 hour format
+                     *
+                     * 0 hours indicates midnight
+                     * 12 hours indicates noon
+                    */
+    
+                    <b>
+                    // Implement the default (no argument) constructor that sets time to midnight.
+                    </b>
+                    
+                    class Time
+                    {
+                    private:
+                        int hour;
+                        int minute;
+                    
+                    public:
+                       
+                        <b>Time()
+                        {
+                            hour = 0;
+                            minute = 0;
+                        }</b>
+                        
+                        void print()
+                        {
+                            int twelveHour = hour % 12;
+                            if (twelveHour == 0)
+                                twelveHour = 12;
+                    
+                            cout << setfill('0');
+                            cout << twelveHour << ":" << setw(2) << minute << " ";
+                            if (hour >= 12)
+                                cout << "PM" << endl;
+                            else
+                                cout << "AM" << endl;
+                        }
+                    };
+                    
+                    int main()
+                    {
+                        Time t1;
+                        t1.print();
+                    
+                        return 0;
+                    }
+                    
+                    <b>// ALTERNATIVELY:
+                    /*
+                    Time::Time()  // Preface the constructor with Time::, since I am defining it outside of the class.
                     {
                         hour = 0;
                         minute = 0;
-                    }</b>
+                    }
+                    */</b>           
+            </pre>
+        </div>
+        <div><!-- CONSTRUCTOR -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    #include <iomanip>
+                    using namespace std;
                     
-                    void print()
+                    class Time {
+                    private:
+                        int hour;
+                        int minute;
+                    
+                    public:
+                        Time(int startHour);
+                    
+                        void print() {
+                                 int twelveHour = hour % 12;
+                            if(twelveHour == 0)
+                                twelveHour = 12;
+                    
+                            cout << setfill('0');
+                            cout << twelveHour << ":" << setw(2) << minute << " ";
+                            if(hour >= 12)
+                                cout << "PM" << endl;
+                            else
+                                cout << "AM" << endl;
+                        }
+                    };
+                    
+                    int main()
                     {
-                        int twelveHour = hour % 12;
-                        if (twelveHour == 0)
-                            twelveHour = 12;
-                
-                        cout << setfill('0');
-                        cout << twelveHour << ":" << setw(2) << minute << " ";
-                        if (hour >= 12)
-                            cout << "PM" << endl;
-                        else
-                            cout << "AM" << endl;
+                        Time t1(16);
+                        t1.print();
+                        Time t2(3);
+                        t2.print();
                     }
-                };
-                
-                int main()
-                {
-                    Time t1;
-                    t1.print();
-                
-                    return 0;
-                }
-                
-                <b>// ALTERNATIVELY:
-                /*
-                Time::Time()  // Preface the constructor with Time::, since I am defining it outside of the class.
-                {
-                    hour = 0;
-                    minute = 0;
-                }
-                */</b>           
-        </pre>
-    </div>
-    <div><!-- CONSTRUCTOR -->
-        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
-        <pre>
-                #include <iostream>
-                #include <iomanip>
-                using namespace std;
-                
-                class Time {
-                private:
-                    int hour;
-                    int minute;
-                
-                public:
-                    Time(int startHour);
-                
-                    void print() {
-                             int twelveHour = hour % 12;
-                        if(twelveHour == 0)
-                            twelveHour = 12;
-                
-                        cout << setfill('0');
-                        cout << twelveHour << ":" << setw(2) << minute << " ";
-                        if(hour >= 12)
-                            cout << "PM" << endl;
-                        else
-                            cout << "AM" << endl;
-                    }
-                };
-                
-                int main()
-                {
-                    Time t1(16);
-                    t1.print();
-                    Time t2(3);
-                    t2.print();
-                }
-                <b>
-                // implement the constructor that takes an hour and sets the minutes to 0:
-
-                Time::Time(int startHour) {
-                    hour = startHour;
-                    minute = 0;
-                }</b>
-        </pre>
-    </div>
-    <div><!-- CONSTRUCTOR -->
-        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
-        <pre>
-                #include <iostream>
-                #include <iomanip>
-                using namespace std;
-                
-                class Time {
-                private:
-                    int hour;
-                    int minute;
-                
-                public:
-                    Time(int startHour, int startMinute);
-                
-                    void print() {
-                             int twelveHour = hour % 12;
-                        if(twelveHour == 0)
-                            twelveHour = 12;
-                
-                        cout << setfill('0');
-                        cout << twelveHour << ":" << setw(2) << minute << " ";
-                        if(hour >= 12)
-                            cout << "PM" << endl;
-                        else
-                            cout << "AM" << endl;
-                    }
-                };
-                
-                int main()
-                {
-                    Time t1(15, 31);
-                    t1.print();
-                
-                
-                    Time t2(2, 18);
-                    t2.print();
-                }
-                <b>
-                // implement the constructor that takes an hour and minute value:
-
-                Time::</b>Time(int startHour, int startMinute) {
-                    hour = startHour;
-                    minute = startMinute;
-                }
-        </pre>
-    </div>
-    <div><!-- CONSTRUCTOR -->
-        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
-        <pre>
-                #include <iostream>
-                using namespace std;
-                
-                class Rectangle {
-                public:
-                    Rectangle(double theWidth, double theHeight);
-                    double getWidth();
-                    double getHeight();
-                    double getPerimeter();
-                    double getArea();
-                    void scale(double scaleFactor);
-                
-                private:
-                    double width;
-                    double height;
-                };
-                
-                <b>
-                // Add the function implementations so the code compiles and runs successfully
-                </b>
-
-                <b>Rectangle::</b>Rectangle(double theWidth, double theHeight) {
-                    width = theWidth;
-                    height = theHeight;
-                }
-                
-                double <b>Rectangle::</b>getWidth() {
-                    return width;
-                }
-                
-                double <b>Rectangle::</b>getHeight() {
-                    return height;
-                }
-                
-                double <b>Rectangle::</b>getPerimeter() {
-                    return (width * 2) + (height * 2);
-                }
-                
-                double <b>Rectangle::</b>getArea() {
-                    return width * height;
-                }
-                
-                void <b>Rectangle::</b>scale(double scaleFactor) {
-                    width *= scaleFactor;
-                    height = height * scaleFactor;
-                }
-                
-                int main()
-                {
-                    // create a rectangle with a width of 10 and a height of 20
+                    <b>
+                    // implement the constructor that takes an hour and sets the minutes to 0:
+    
+                    Time::Time(int startHour) {
+                        hour = startHour;
+                        minute = 0;
+                    }</b>
+            </pre>
+        </div>
+        <div><!-- CONSTRUCTOR -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    #include <iomanip>
+                    using namespace std;
                     
-                    Rectangle r1(10, 20);
-                
-                    cout << r1.getWidth() << " " << r1.getHeight() << endl;
-                    cout << r1.getPerimeter() << endl;
-                    cout << r1.getArea() << endl;
-                
-                
-                    // reduce the rectangle to half its former size
+                    class Time {
+                    private:
+                        int hour;
+                        int minute;
                     
-                    r1.scale(0.5);
-                
-                    cout << r1.getWidth() << " " << r1.getHeight() << endl;
-                    cout << r1.getPerimeter() << endl;
-                    cout << r1.getArea() << endl;
-                }                
-        </pre>
-    </div>  
+                    public:
+                        Time(int startHour, int startMinute);
+                    
+                        void print() {
+                                 int twelveHour = hour % 12;
+                            if(twelveHour == 0)
+                                twelveHour = 12;
+                    
+                            cout << setfill('0');
+                            cout << twelveHour << ":" << setw(2) << minute << " ";
+                            if(hour >= 12)
+                                cout << "PM" << endl;
+                            else
+                                cout << "AM" << endl;
+                        }
+                    };
+                    
+                    int main()
+                    {
+                        Time t1(15, 31);
+                        t1.print();
+                    
+                    
+                        Time t2(2, 18);
+                        t2.print();
+                    }
+                    <b>
+                    // implement the constructor that takes an hour and minute value:
+    
+                    Time::</b>Time(int startHour, int startMinute) {
+                        hour = startHour;
+                        minute = startMinute;
+                    }
+            </pre>
+        </div>
+        <div><!-- CONSTRUCTOR -->
+            <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+            <pre>
+                    #include <iostream>
+                    using namespace std;
+                    
+                    class Rectangle {
+                    public:
+                        Rectangle(double theWidth, double theHeight);
+                        double getWidth();
+                        double getHeight();
+                        double getPerimeter();
+                        double getArea();
+                        void scale(double scaleFactor);
+                    
+                    private:
+                        double width;
+                        double height;
+                    };
+                    
+                    <b>
+                    // Add the function implementations so the code compiles and runs successfully
+                    </b>
+    
+                    <b>Rectangle::</b>Rectangle(double theWidth, double theHeight) {
+                        width = theWidth;
+                        height = theHeight;
+                    }
+                    
+                    double <b>Rectangle::</b>getWidth() {
+                        return width;
+                    }
+                    
+                    double <b>Rectangle::</b>getHeight() {
+                        return height;
+                    }
+                    
+                    double <b>Rectangle::</b>getPerimeter() {
+                        return (width * 2) + (height * 2);
+                    }
+                    
+                    double <b>Rectangle::</b>getArea() {
+                        return width * height;
+                    }
+                    
+                    void <b>Rectangle::</b>scale(double scaleFactor) {
+                        width *= scaleFactor;
+                        height = height * scaleFactor;
+                    }
+                    
+                    int main()
+                    {
+                        // create a rectangle with a width of 10 and a height of 20
+                        
+                        Rectangle r1(10, 20);
+                    
+                        cout << r1.getWidth() << " " << r1.getHeight() << endl;
+                        cout << r1.getPerimeter() << endl;
+                        cout << r1.getArea() << endl;
+                    
+                    
+                        // reduce the rectangle to half its former size
+                        
+                        r1.scale(0.5);
+                    
+                        cout << r1.getWidth() << " " << r1.getHeight() << endl;
+                        cout << r1.getPerimeter() << endl;
+                        cout << r1.getArea() << endl;
+                    }                
+            </pre>
+        </div>  
+    </div>
     
 </body>
 </html>
