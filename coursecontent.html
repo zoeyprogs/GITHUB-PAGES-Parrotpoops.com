@@ -7,12 +7,212 @@
     <title>C++ Course Content</title>
 </head>
 <body>
-    <a href="https://computerscience.chemeketa.edu/cs160Reader/_static/littleComputer/littleComputer.html?program=510/511/////////1">Little Man Computer</a>
+    <h1 id="top">CS 162 Code Review</h1>
+    <a target="_blank" href="https://computerscience.chemeketa.edu/cs160Reader/_static/littleComputer/littleComputer.html?program=510/511/////////1">Little Man Computer</a>
 
+    <h3><a href="#object">Objects</a></h3>
     <h3><a href="#constructor">Constructors</a></h3>
 
+    <h1 id="object">Objects</h1>
+    <a href="#top">Top</a>
+    <div><!-- OBJECT -->
+        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+        <pre>
+            #include <iostream>
+            using namespace std;
+            
+            class Point {
+            private:
+                double x;
+                double y;
+            
+            public:<b>
+                Point() {
+                    x = 0;
+                    y = 0;
+                }</b>
+            
+                double getX() {
+                    return x;
+                }
+                
+                double getY() {
+                    return y;
+                }
+            };
+            
+            int main()
+            {	<b>
+                // create a point named p1 at the location 0, 0
+
+                Point p1;</b>
+            
+                cout << p1.getX() << " " << p1.getY() << endl;
+            }
+        </pre>
+    </div>
+    <div><!-- OBJECT -->
+        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+        <pre>
+                #include <iostream>
+                using namespace std;
+                
+                class Point {
+                private:
+                    double x;
+                    double y;
+                
+                public:
+                    Point() {
+                        x = 0;
+                        y = 0;
+                    }
+                    <b>
+                    Point(double startX, double startY) {
+                        x = startX;
+                        y = startY;
+                    }</b>
+                
+                    double getX() {
+                        return x;
+                    }
+                
+                    double getY() {
+                        return y;
+                    }
+                };
+                
+                int main()
+                {
+                    // read in two doubles from the console
+
+                    double x1;
+                    double y1;
+                    cin >> x1;
+                    cin >> y1;
+                    <b>
+                    // create a point named p1 at the x and y coordinates given by the numbers from the console
+
+                    Point p1(x1, y1);
+                    </b>
+                    cout << p1.getX() << " " << p1.getY() << endl;
+                }
+        </pre>
+    </div>
+    <div><!-- OBJECT -->
+        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+        <pre>
+                #include <iostream>
+                using namespace std;
+                
+                // represents a point on a standard Cartesian plane
+
+                class Point {
+                private:
+                    double x;
+                    double y;
+                
+                public:
+                    Point() {
+                        x = 0;
+                        y = 0;
+                    }
+                
+                    double getX() {
+                        return x;
+                    }
+                    
+                    double getY() {
+                        return y;
+                    }
+                    
+                    void translate(double deltaX, double deltaY) {
+                        x += deltaX;
+                        y += deltaY;
+                    }
+                };
+                
+                int main()
+                {
+                    Point p1;
+                    Point p2;
+                    <b>
+                    // move Point p1: right 10 units, down 3 units
+                    // move Point p2: left 2 units, up 5 units
+                    
+                    p1.translate(10,-3);
+                    p2.translate(-2,5);
+                    </b>
+                    cout << p1.getX() << " " << p1.getY() << endl;
+                    cout << p2.getX() << " " << p2.getY() << endl;
+                }
+        </pre>
+    </div>
+    <div><!-- OBJECT -->
+        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+        <pre>
+                #include <iostream>
+                #include <cstdlib>
+                #include <ctime>
+                using namespace std;
+                
+                class Point {
+                private:
+                    double x;
+                    double y;
+                
+                public:
+                    Point() {
+                        x = 0;
+                        y = 0;
+                    }
+                
+                    Point(double startX, double startY) {
+                        x = startX;
+                        y = startY;
+                    }
+                
+                    double getX() {
+                        return x;
+                    }
+                    
+                    double getY() {
+                        return y;
+                    }
+                    
+                    void translate(double deltaX, double deltaY) {
+                        x += deltaX;
+                        y += deltaY;
+                    }
+                };
+                
+                int main()
+                {
+                    srand(static_cast<int>(time(0)));
+                    Point p1(rand() % 10, rand() % 10);
+                    <b>
+                    // create a point p2: right 4 units of p1, down 3 units from it
+                    
+                    double x1;
+                    double y1;
+                    
+                    Point p2;
+                    p2 = p1;
+                    
+                    double xShift = x1 + 4;
+                    double yShift = y1 - 3;
+                    
+                    p2.translate(xShift, yShift);
+                    </b>
+                    cout << p2.getX() - p1.getX() << endl;
+                    cout << p2.getY() - p1.getY() << endl;
+                }
+        </pre>
+    </div>
+
     <h1 id="constructor">Constructors</h1>
-    <div><!-- EXAMPLE -->
+    <a href="#top">Top</a>
+    <div><!-- CONSTRUCTOR -->
         <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
         <pre>
                 #include <iomanip>
@@ -27,7 +227,7 @@
                 */
 
                 <b>
-                    Implement the default (no argument) constructor that sets time to midnight.
+                // Implement the default (no argument) constructor that sets time to midnight.
                 </b>
                 
                 class Time
@@ -67,15 +267,17 @@
                     return 0;
                 }
                 
-                <b>ALTERNATIVELY:
-                Time::Time()  // Preface the constructor with Time::, since you are defining it outside of the class.
+                <b>// ALTERNATIVELY:
+                /*
+                Time::Time()  // Preface the constructor with Time::, since I am defining it outside of the class.
                 {
                     hour = 0;
                     minute = 0;
-                }</b>           
+                }
+                */</b>           
         </pre>
     </div>
-    <div><!-- EXAMPLE -->
+    <div><!-- CONSTRUCTOR -->
         <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
         <pre>
                 #include <iostream>
@@ -111,14 +313,16 @@
                     Time t2(3);
                     t2.print();
                 }
-                
+                <b>
+                // implement the constructor that takes an hour and sets the minutes to 0:
+
                 Time::Time(int startHour) {
                     hour = startHour;
                     minute = 0;
-                }
+                }</b>
         </pre>
     </div>
-    <div><!-- EXAMPLE -->
+    <div><!-- CONSTRUCTOR -->
         <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
         <pre>
                 #include <iostream>
@@ -156,14 +360,86 @@
                     Time t2(2, 18);
                     t2.print();
                 }
-                
-                Time::Time(int startHour, int startMinute) {
+                <b>
+                // implement the constructor that takes an hour and minute value:
+
+                Time::</b>Time(int startHour, int startMinute) {
                     hour = startHour;
                     minute = startMinute;
                 }
         </pre>
     </div>
+    <div><!-- CONSTRUCTOR -->
+        <p>Andrew Scholer's CPP Lab (Chemeketa)</p>
+        <pre>
+                #include <iostream>
+                using namespace std;
+                
+                class Rectangle {
+                public:
+                    Rectangle(double theWidth, double theHeight);
+                    double getWidth();
+                    double getHeight();
+                    double getPerimeter();
+                    double getArea();
+                    void scale(double scaleFactor);
+                
+                private:
+                    double width;
+                    double height;
+                };
+                
+                <b>
+                // Add the function implementations so the code compiles and runs successfully
+                </b>
 
+                <b>Rectangle::</b>Rectangle(double theWidth, double theHeight) {
+                    width = theWidth;
+                    height = theHeight;
+                }
+                
+                double <b>Rectangle::</b>getWidth() {
+                    return width;
+                }
+                
+                double <b>Rectangle::</b>getHeight() {
+                    return height;
+                }
+                
+                double <b>Rectangle::</b>getPerimeter() {
+                    return (width * 2) + (height * 2);
+                }
+                
+                double <b>Rectangle::</b>getArea() {
+                    return width * height;
+                }
+                
+                void <b>Rectangle::</b>scale(double scaleFactor) {
+                    width *= scaleFactor;
+                    height = height * scaleFactor;
+                }
+                
+                int main()
+                {
+                    // create a rectangle with a width of 10 and a height of 20
+                    
+                    Rectangle r1(10, 20);
+                
+                    cout << r1.getWidth() << " " << r1.getHeight() << endl;
+                    cout << r1.getPerimeter() << endl;
+                    cout << r1.getArea() << endl;
+                
+                
+                    // reduce the rectangle to half its former size
+                    
+                    r1.scale(0.5);
+                
+                    cout << r1.getWidth() << " " << r1.getHeight() << endl;
+                    cout << r1.getPerimeter() << endl;
+                    cout << r1.getArea() << endl;
+                }                
+        </pre>
+    </div>  
     
 </body>
 </html>
