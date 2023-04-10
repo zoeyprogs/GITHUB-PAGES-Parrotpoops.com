@@ -8,5 +8,64 @@
 </head>
 <body>
     <a href="https://computerscience.chemeketa.edu/cs160Reader/_static/littleComputer/littleComputer.html?program=510/511/////////1">Little Man Computer</a>
+
+
+    <pre>
+        // Andrew Scholer's CPP Lab (Chemeketa)
+            #include <iomanip>
+            #include <iostream>
+            using namespace std;
+            
+            /*
+             * Stores a time of day in 24 hour format
+             *
+             * 0 hours indicates midnight
+             * 12 hours indicates noon
+            */
+            
+            class Time
+            {
+            private:
+                int hour;
+                int minute;
+            
+            public:
+               
+                Time()  // Preface the constructor with Time::, since you are defining it outside of the class.
+                {
+                    hour = 0;
+                    minute = 0;
+                }
+            
+                void print()
+                {
+                    int twelveHour = hour % 12;
+                    if (twelveHour == 0)
+                        twelveHour = 12;
+            
+                    cout << setfill('0');
+                    cout << twelveHour << ":" << setw(2) << minute << " ";
+                    if (hour >= 12)
+                        cout << "PM" << endl;
+                    else
+                        cout << "AM" << endl;
+                }
+            };
+            
+            int main()
+            {
+                Time t1;
+                t1.print();
+            
+                return 0;
+            }
+            
+            // Implement the default (no argument) constructor that sets time to midnight.
+            //Time::Time()  // Preface the constructor with Time::, since you are defining it outside of the class.
+            //{
+            //    hour = 0;
+            //    minute = 0;
+            //}           
+    </pre>
 </body>
 </html>
